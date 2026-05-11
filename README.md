@@ -67,3 +67,9 @@ third lecture:
         - check the logging graph 
         - change hyperparameters and repeat until low loss
 
+fourth lecture:
+    not much neural networks created in this lecture but optimizationof the network and initial weights, batch normalization is introduced
+    when we initialize the network weights randomly, the network guesses incorrectly and confident at that so we need better starting neurons.
+    when we draw the plot of the loss over time, the figure looks like a hockey stick because of the random initialization of the weights, to solve that problem and have a roughly equal probability among the weights, which in turn reduces training time, we divide the initial weights by 1/fan_in**0.5    basically scaling down the initial weigths, the scale down factor is done through math and the activation functions have their own best init scale down. we are reducing the variance to 1.
+    this is applicable for small network like this but on  a large scale network, it doesnt work and a new method is proposed and taht is batch normalization. it's basically normalizing the layer before it goes through to activation. this in turn affects the results of the network. it's all math here.
+    during batch normalization, we need to multiply gain and add bias during inference because of our extra math, and instead of doing it after training, it's done during training, but on the side. optimizing the running mean and running bias. beacause the data was normalized during batch normalization.
