@@ -73,3 +73,20 @@ fourth lecture:
     when we draw the plot of the loss over time, the figure looks like a hockey stick because of the random initialization of the weights, to solve that problem and have a roughly equal probability among the weights, which in turn reduces training time, we divide the initial weights by 1/fan_in**0.5    basically scaling down the initial weigths, the scale down factor is done through math and the activation functions have their own best init scale down. we are reducing the variance to 1.
     this is applicable for small network like this but on  a large scale network, it doesnt work and a new method is proposed and taht is batch normalization. it's basically normalizing the layer before it goes through to activation. this in turn affects the results of the network. it's all math here.
     during batch normalization, we need to multiply gain and add bias during inference because of our extra math, and instead of doing it after training, it's done during training, but on the side. optimizing the running mean and running bias. beacause the data was normalized during batch normalization.
+
+
+fifth lecture:
+    this lecture was more about backpropagation, didn't struggle too much with the calculus but struggled with the tensor shapes, broadcasting, need to look further and get more practice on tensor manipulation
+
+sixth lecture:
+    increased context length for better accuracy
+    basically, instead of creating one whole list of embeddings, we embed in groups of two, therefore we have to change the shape of everything, from 2 dimensions to three.
+    created embedding class to create embeddings
+    flatten/flattenConsecutive afterwards, this is equivalent to torch.flatten. i think this is to create a single long list of all the elements? and in this case to create appropriate dimensions after embedding
+    created sequential for a list of layers, reducing the lines of repeated code and get closer to torch.nn.sequential
+    we can now assign model as sequential layers, embedding, flattening(dimensions) three times because halving three times
+    flattening the layer is important because if we were to use without flattening, we would just get another linear layer instead of desired complexity of the layers.
+    some other cleanup of the code and using this architecture.
+    keep in mind dilated convolutions mimicking.
+    instead of using the whole context we use pairs of inputs three times, 
+    
